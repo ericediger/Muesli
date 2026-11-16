@@ -1,4 +1,4 @@
-# Muesli (A [Granola App]([url](https://www.granola.ai/)) assistant)
+# Muesli (A [Granola App](https://www.granola.ai/) assistant)
 
 [![Watch the one-minute explainer video](media/explainer-poster.jpg)](https://ericediger.github.io/Muesli/media/muesli-explainer.mp4)
 
