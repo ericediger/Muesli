@@ -2,6 +2,7 @@
   "name": "muesli",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "description": "API-level assistant for Granola meeting notes: selective transcript export, scoped LLM queries, and per-person profiles.",
   "type": "module",
   "bin": {
