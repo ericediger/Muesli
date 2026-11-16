@@ -4,7 +4,7 @@ standard: coordination-v1
 task_id: granola-20261116-mit-license
 title: Add an MIT license
 folder: GRANOLA
-status: active
+status: closed
 owner:
   tool: Claude Code
   session_id: 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d
@@ -14,22 +14,22 @@ coordinator: Pasta
 project_owner: Eric
 released_to: none
 escalation_pending: false
-closed_reason: none
+closed_reason: completed (pull request #1 merged by Eric's decision)
 branch: granola-20261116-mit-license
 base_branch: main
 worktree: main checkout
-latest_commit: see the pull request (this record is part of the commit)
-uncommitted_changes: none after the commit
+latest_commit: 86a3b26, merged into main as 580d8e6
+uncommitted_changes: this record's closing update (not committed; see Log)
 depends_on: [granola-20261116-publish-github]
 blocks: []
 milestones:
   implementation_complete: yes
   verified: yes
   ready_for_owner_testing: yes
-  accepted: no
-  merged: no                # Eric merges the pull request
+  accepted: yes             # Eric asked for the merge
+  merged: yes               # 580d8e6 on main, 2026-11-16
   deployed: no
-updated_at: 2026-11-16T14:07-05:00
+updated_at: 2026-11-16T14:29-05:00
 updated_by: Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d
 ---
 
@@ -54,7 +54,7 @@ License the public repository under MIT, as Eric asked ("Add MIT license", 2026-
 
 ## Current state
 
-The work is committed on `granola-20261116-mit-license` and pushed, with a pull request to `main` waiting for Eric to merge.
+Merged into `main` as 580d8e6. The task branch is deleted on GitHub and locally.
 
 ## Completed
 
@@ -62,7 +62,7 @@ The work is committed on `granola-20261116-mit-license` and pushed, with a pull 
 
 ## Remaining
 
-- Eric merges the pull request.
+- none
 
 ## Blockers
 
@@ -70,12 +70,12 @@ The work is committed on `granola-20261116-mit-license` and pushed, with a pull 
 
 ## Decisions needed (from Eric)
 
-- Merge the pull request (§0.7: merging to the default branch is Eric's decision).
+- Merge: done (Eric approved in chat).
 - Optional: put his full name instead of the account name in the copyright line.
 
 ## Next step
 
-Eric merges the pull request on GitHub, or tells the owner to merge it.
+None. Optional: change the copyright holder to a full name.
 
 ## Verification
 
@@ -97,3 +97,4 @@ Eric merges the pull request on GitHub, or tells the owner to merge it.
 ## Log
 
 - 2026-11-16T14:07-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · created · license added on a task branch; pull request opened for Eric to merge
+- 2026-11-16T14:29-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · closed · Eric said "Yes, merge it"; merged pull request #1 into main as 580d8e6; task branch deleted; local main is in sync. This closing update is left uncommitted, because committing to main directly is against §0.7 and it is too small for its own pull request. It goes in with the next change.

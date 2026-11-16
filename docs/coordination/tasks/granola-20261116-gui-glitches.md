@@ -4,7 +4,7 @@ standard: coordination-v1
 task_id: granola-20261116-gui-glitches
 title: Fix grid card offset and the streaming cursor that returns after an answer
 folder: GRANOLA
-status: active
+status: closed
 owner:
   tool: Claude Code
   session_id: d7de786c-d1df-48ea-91bb-7c7849d5a6b8
@@ -14,22 +14,22 @@ coordinator: Pasta
 project_owner: Eric
 released_to: none
 escalation_pending: false
-closed_reason: none
+closed_reason: accepted (Eric asked to merge pull request #3, 2026-11-16)
 branch: granola-20261116-gui-glitches
 base_branch: main
 worktree: main checkout
-latest_commit: see the branch (pushed; pull request #3)
-uncommitted_changes: none from this task after the commit
+latest_commit: d380236, merged into main as 063568f
+uncommitted_changes: this record's closing update (not committed; see Log)
 depends_on: []
 blocks: []
 milestones:
   implementation_complete: yes
   verified: yes             # see Verification
   ready_for_owner_testing: yes
-  accepted: no
-  merged: no
+  accepted: yes             # Eric asked for the merge
+  merged: yes               # 063568f on main, 2026-11-16
   deployed: no
-updated_at: 2026-11-16T16:30-05:00
+updated_at: 2026-11-16T16:32-05:00
 updated_by: Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8
 ---
 
@@ -53,7 +53,7 @@ Fix two display bugs found while filming the explainer (granola-20261116-explain
 
 ## Current state
 
-Both fixes are written, verified against the old code on a mocked copy of the GUI, committed, pushed, and in pull request #3. Waiting for Eric to test and merge.
+Merged into `main` as 063568f; the local checkout is on main with both fixes. The GUI service reads `web/` on each request, so a browser reload shows them. Not yet checked against the running GUI with real data. The task branch is still on GitHub and local; it was not deleted.
 
 ## Completed
 
@@ -62,8 +62,7 @@ Both fixes are written, verified against the old code on a mocked copy of the GU
 
 ## Remaining
 
-- Eric merges pull request #3 (his decision).
-- Eric checks the GUI after restarting his running service (port 4747 still serves the old files until the browser reloads them).
+- none (optional: Eric checks the GUI with real data after a reload)
 
 ## Blockers
 
@@ -71,12 +70,12 @@ Both fixes are written, verified against the old code on a mocked copy of the GU
 
 ## Decisions needed (from Eric)
 
-- Push and pull request: done (Eric said "Push and open PR").
-- Merge pull request #3.
+- Push, pull request and merge: done (Eric said "Push and open PR", then "Merge it").
+- Optional: delete the task branch, on GitHub and locally.
 
 ## Next step
 
-Eric reviews and merges pull request #3, or tells the owner to merge it.
+None.
 
 ## Verification
 
@@ -93,7 +92,7 @@ Eric reviews and merges pull request #3, or tells the owner to merge it.
 
 ## Evidence
 
-- Pull request #3; commit e5658d1.
+- Pull request #3; commits e5658d1 and d380236; merge commit 063568f.
 
 ## Discrepancies found on resume
 
@@ -104,3 +103,4 @@ Eric reviews and merges pull request #3, or tells the owner to merge it.
 - 2026-11-16T16:03-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · created · task opened at Eric's request; branch cut from main. Overlap check: the explainer task's stage copies `web/` but changes no file in it.
 - 2026-11-16T16:08-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · both fixes written and verified; gates passed; committed on the task branch under the standing authorization. Push waits for Eric.
 - 2026-11-16T16:30-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · Eric said "Push and open PR"; pushed the branch and opened pull request #3.
+- 2026-11-16T16:32-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · closed · Eric said "Merge it"; merged pull request #3 into main as 063568f; local main fast-forwarded. This closing update is left uncommitted, because committing to main directly is against §0.7; it goes in with the next change, like the other closing updates.

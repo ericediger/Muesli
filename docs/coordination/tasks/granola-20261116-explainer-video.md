@@ -4,7 +4,7 @@ standard: coordination-v1
 task_id: granola-20261116-explainer-video
 title: Make a narrated explainer video of the Muesli web GUI with /sizzle
 folder: GRANOLA
-status: active
+status: closed
 owner:
   tool: Claude Code
   session_id: d7de786c-d1df-48ea-91bb-7c7849d5a6b8
@@ -14,22 +14,22 @@ coordinator: Pasta
 project_owner: Eric
 released_to: none
 escalation_pending: false
-closed_reason: none
+closed_reason: accepted (Eric asked to merge pull request #2 and turn on GitHub Pages, 2026-11-16)
 branch: granola-20261116-explainer-video
 base_branch: main
 worktree: main checkout
-latest_commit: see the branch (pushed; pull request #2)
-uncommitted_changes: none from this task after the commit
+latest_commit: 47fa3a3, merged into main as 578f3be
+uncommitted_changes: this record's closing update (not committed; see Log)
 depends_on: [the sizzle engine, kept outside this repository]
 blocks: []
 milestones:
   implementation_complete: yes
   verified: yes             # stills and check frames reviewed, gates passed; see Verification
   ready_for_owner_testing: yes
-  accepted: no
-  merged: no
-  deployed: no
-updated_at: 2026-11-16T16:10-05:00
+  accepted: yes             # Eric asked for the merge and the Pages site
+  merged: yes               # 578f3be on main, 2026-11-16
+  deployed: yes             # GitHub Pages (main, /) built; video URL returns 200
+updated_at: 2026-11-16T16:27-05:00
 updated_by: Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8
 ---
 
@@ -53,7 +53,7 @@ A one-to-two-minute explainer video of the Muesli web GUI, made with the /sizzle
 
 ## Current state
 
-The video is rendered: `media/muesli-explainer.mp4` (68.4 s, 1920×1080, about 17.5 MB) and `media/explainer-poster.jpg`. Seven scenes: an animated opener, five footage scenes (Overview with sync, Notes search and selection, a transcript, Ask with a streamed answer, Profiles), and an animated outro. Narration is the ElevenLabs voice set in the engine; the music bed is "Sunset in Ibiza" from the author's own ElevenLabs Music workspace. Waiting for Eric's acceptance and his decision on pushing.
+Merged into `main` as 578f3be, and GitHub Pages is on for the repository (source `main`, `/`). The README opens with the poster, which links to https://ericediger.github.io/Muesli/media/muesli-explainer.mp4 (checked: HTTP 200, video/mp4, 17,540,226 bytes). The task branch is still on GitHub and local; it was not deleted.
 
 ## Completed
 
@@ -63,9 +63,7 @@ The video is rendered: `media/muesli-explainer.mp4` (68.4 s, 1920×1080, about 1
 
 ## Remaining
 
-- Eric reviews and accepts the video.
-- Push and pull request, if Eric approves the push (public repository).
-- Merge the pull request and turn on GitHub Pages (main, root), so the README's video link plays. Both are Eric's decisions.
+- none
 
 ## Blockers
 
@@ -73,13 +71,12 @@ The video is rendered: `media/muesli-explainer.mp4` (68.4 s, 1920×1080, about 1
 
 ## Decisions needed (from Eric)
 
-- Push: approved. Eric asked to "put this on the GH repo as the readme like" the flight-deck, STRATEGOS and pawn READMEs (2026-11-16). The branch adds about 21 MB (video 17.5 MB, music 3.6 MB, poster 0.1 MB) to a public repository.
-- Merge the pull request, and turn on GitHub Pages for the repository (source `main`, `/`), as flight-deck and STRATEGOS have it. Until both happen, the README's video link returns 404.
-- Storyboard: Eric did not answer the sign-off question directly; he picked the music, then approved the full render after seeing the stills.
+- Merge and GitHub Pages: done (Eric said \"Merge and enable Pages\").
+- Optional: delete the task branch, on GitHub and locally.
 
 ## Next step
 
-Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
+None.
 
 ## Verification
 
@@ -92,6 +89,7 @@ Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
 | stills | `npm --prefix <engine> run stills` and `-- --late`, plus frames at the ends of the sync, Ask and Profiles scenes | reviewed: framing, zooms, spotlight and text legible | same | 2026-11-16T15:52-05:00 |
 | render | `npm --prefix <engine> run render`, `run poster` | passed: 68.4 s, -16.0 LUFS, true peak -2.2 dBTP, one linear gain | same | 2026-11-16T16:00-05:00 (file times in `media/`) |
 | stage flows | built-in browser against the stage: sync, search, transcript drawer, Ask, Profiles | passed | same | 2026-11-16T15:40-05:00 |
+| Pages video link | `curl -I https://ericediger.github.io/Muesli/media/muesli-explainer.mp4` | passed: 200, video/mp4, 17,540,226 bytes | main at 578f3be | 2026-11-16T16:27-05:00 |
 | privacy scan | grep of the new files for absolute paths, emails, keys and voice ids | passed (no hits besides role names) | same | 2026-11-16, just before commit b808590 (16:01) |
 
 **Verification limits:** the video was checked from stills and single frames, not watched end to end with sound. The narration audio and music balance were checked only by the loudness measurement.
@@ -116,3 +114,4 @@ Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
 - 2026-11-16T16:05-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · video rendered and verified; Eric approved the render after the stills; committed on the task branch under the standing authorization. Push not done: needs Eric's approval.
 - 2026-11-16T16:12-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · added the poster and video link to the top of README.md, matching flight-deck, STRATEGOS and pawn (GitHub Pages URL); pushing the branch and opening a pull request at Eric's request.
 - 2026-11-16T16:10-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · corrected · several times in this record were estimated and ran ahead of the clock. The two log lines above marked 16:05 and 16:12 match commits b808590 (16:01) and 53082a7 (16:04); front-matter and verification times are now taken from commit and file times. Branch pushed and pull request #2 opened at 16:05.
+- 2026-11-16T16:27-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · closed · Eric said "Merge and enable Pages"; merged pull request #2 into main as 578f3be (16:26); turned on GitHub Pages (legacy build, main, /); build finished and the README's video link plays. This closing update is left uncommitted, because committing to main directly is against §0.7; it goes in with the next change, like the MIT license record's.
