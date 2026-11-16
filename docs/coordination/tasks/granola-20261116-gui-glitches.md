@@ -18,7 +18,7 @@ closed_reason: none
 branch: granola-20261116-gui-glitches
 base_branch: main
 worktree: main checkout
-latest_commit: see the branch (this record is part of the commit)
+latest_commit: see the branch (pushed; pull request #3)
 uncommitted_changes: none from this task after the commit
 depends_on: []
 blocks: []
@@ -29,7 +29,7 @@ milestones:
   accepted: no
   merged: no
   deployed: no
-updated_at: 2026-11-16T16:08-05:00
+updated_at: 2026-11-16T16:30-05:00
 updated_by: Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8
 ---
 
@@ -53,7 +53,7 @@ Fix two display bugs found while filming the explainer (granola-20261116-explain
 
 ## Current state
 
-Both fixes are written, verified against the old code on a mocked copy of the GUI, and committed on the task branch. Not pushed: pushing needs Eric's approval because the repository is public.
+Both fixes are written, verified against the old code on a mocked copy of the GUI, committed, pushed, and in pull request #3. Waiting for Eric to test and merge.
 
 ## Completed
 
@@ -62,7 +62,7 @@ Both fixes are written, verified against the old code on a mocked copy of the GU
 
 ## Remaining
 
-- Push and pull request, once Eric approves.
+- Eric merges pull request #3 (his decision).
 - Eric checks the GUI after restarting his running service (port 4747 still serves the old files until the browser reloads them).
 
 ## Blockers
@@ -71,11 +71,12 @@ Both fixes are written, verified against the old code on a mocked copy of the GU
 
 ## Decisions needed (from Eric)
 
-- Push and pull request (ask first: public repository).
+- Push and pull request: done (Eric said "Push and open PR").
+- Merge pull request #3.
 
 ## Next step
 
-Eric approves the push; the owner pushes the branch and opens a pull request.
+Eric reviews and merges pull request #3, or tells the owner to merge it.
 
 ## Verification
 
@@ -92,7 +93,7 @@ Eric approves the push; the owner pushes the branch and opens a pull request.
 
 ## Evidence
 
-- none yet
+- Pull request #3; commit e5658d1.
 
 ## Discrepancies found on resume
 
@@ -102,3 +103,4 @@ Eric approves the push; the owner pushes the branch and opens a pull request.
 
 - 2026-11-16T16:03-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · created · task opened at Eric's request; branch cut from main. Overlap check: the explainer task's stage copies `web/` but changes no file in it.
 - 2026-11-16T16:08-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · both fixes written and verified; gates passed; committed on the task branch under the standing authorization. Push waits for Eric.
+- 2026-11-16T16:30-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · Eric said "Push and open PR"; pushed the branch and opened pull request #3.
