@@ -18,7 +18,7 @@ closed_reason: none
 branch: granola-20261116-explainer-video
 base_branch: main
 worktree: main checkout
-latest_commit: see the branch (this record is part of the commit)
+latest_commit: see the branch (pushed; pull request #2)
 uncommitted_changes: none from this task after the commit
 depends_on: [the sizzle engine, kept outside this repository]
 blocks: []
@@ -29,7 +29,7 @@ milestones:
   accepted: no
   merged: no
   deployed: no
-updated_at: 2026-11-16T16:12-05:00
+updated_at: 2026-11-16T16:10-05:00
 updated_by: Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8
 ---
 
@@ -86,13 +86,13 @@ Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
 | Check | Command | Result | State tested | When |
 |---|---|---|---|---|
 | explainer type-check | `npm --prefix <engine> run check` | passed | working tree at 580d8e6 + this task's files | 2026-11-16T15:58-05:00 |
-| app typecheck | `npm run typecheck` | passed | same | 2026-11-16T16:03-05:00 |
-| app tests | `npm test` | passed (19/19) | same | 2026-11-16T16:03-05:00 |
+| app typecheck | `npm run typecheck` | passed | same | 2026-11-16, just before commit b808590 (16:01) |
+| app tests | `npm test` | passed (19/19) | same | 2026-11-16, just before commit b808590 (16:01) |
 | footage timing | `npm --prefix <engine> run record` | passed after one fix (no late beats) | same | 2026-11-16T15:45-05:00 |
 | stills | `npm --prefix <engine> run stills` and `-- --late`, plus frames at the ends of the sync, Ask and Profiles scenes | reviewed: framing, zooms, spotlight and text legible | same | 2026-11-16T15:52-05:00 |
-| render | `npm --prefix <engine> run render`, `run poster` | passed: 68.4 s, -16.0 LUFS, true peak -2.2 dBTP, one linear gain | same | 2026-11-16T16:00-05:00 |
+| render | `npm --prefix <engine> run render`, `run poster` | passed: 68.4 s, -16.0 LUFS, true peak -2.2 dBTP, one linear gain | same | 2026-11-16T16:00-05:00 (file times in `media/`) |
 | stage flows | built-in browser against the stage: sync, search, transcript drawer, Ask, Profiles | passed | same | 2026-11-16T15:40-05:00 |
-| privacy scan | grep of the new files for absolute paths, emails, keys and voice ids | passed (no hits besides role names) | same | 2026-11-16T16:04-05:00 |
+| privacy scan | grep of the new files for absolute paths, emails, keys and voice ids | passed (no hits besides role names) | same | 2026-11-16, just before commit b808590 (16:01) |
 
 **Verification limits:** the video was checked from stills and single frames, not watched end to end with sound. The narration audio and music balance were checked only by the loudness measurement.
 
@@ -115,3 +115,4 @@ Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
 - 2026-11-16T15:17-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · created · task opened at Eric's request; branch cut from main. The uncommitted closing update to the MIT license record belongs to that task and is left untouched.
 - 2026-11-16T16:05-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · video rendered and verified; Eric approved the render after the stills; committed on the task branch under the standing authorization. Push not done: needs Eric's approval.
 - 2026-11-16T16:12-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · added the poster and video link to the top of README.md, matching flight-deck, STRATEGOS and pawn (GitHub Pages URL); pushing the branch and opening a pull request at Eric's request.
+- 2026-11-16T16:10-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · corrected · several times in this record were estimated and ran ahead of the clock. The two log lines above marked 16:05 and 16:12 match commits b808590 (16:01) and 53082a7 (16:04); front-matter and verification times are now taken from commit and file times. Branch pushed and pull request #2 opened at 16:05.
