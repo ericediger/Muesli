@@ -162,6 +162,8 @@ th.num { text-align: right; }
 
 .split { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .split .card + .card { margin-top: 0; }
+/* Grid cells sit side by side: the stacked-card gap would push every cell after the first down. */
+.grid > .card + .card { margin-top: 0; }
 .drawer { position: fixed; top: 0; right: 0; height: 100vh; width: min(760px, 92vw); background: var(--bg-elev); border-left: 1px solid var(--border); box-shadow: var(--shadow); padding: 20px 26px; overflow: auto; z-index: 20; }
 .drawer .close { position: absolute; top: 12px; right: 14px; }
 .backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 19; }

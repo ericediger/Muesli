@@ -630,7 +630,8 @@
       try {
         await stream("/api/ask", body, (ev) => {
           if (ev.type === "session") { state.askSession = { id: ev.sessionId, notes: ev.notes, tokens: ev.tokens, model: ev.model, effort: ev.effort, content: ev.content }; $("#session-info").textContent = `${ev.notes} notes · ${ev.content} · ~${fmtNum(ev.tokens)} tokens · ${ev.model} · ${ev.effort}`; setupCard.hidden = true; }
-          if (ev.type === "text") { turn.a += ev.text; if (!raf) raf = requestAnimationFrame(() => { raf = null; const el = $(`#a-${idx}`); if (el) el.innerHTML = md(turn.a) + '<span class="cursor"></span>'; }); }
+          // A frame that lands after "done" or "error" must not redraw the in-progress answer: renderThread() draws the final one.
+          if (ev.type === "text") { turn.a += ev.text; if (!raf) raf = requestAnimationFrame(() => { raf = null; if (!turn.pending) return; const el = $(`#a-${idx}`); if (el) el.innerHTML = md(turn.a) + '<span class="cursor"></span>'; }); }
           if (ev.type === "done") { turn.pending = false; turn.usage = ev.usage; turn.model = ev.model; }
           if (ev.type === "error") { turn.pending = false; turn.a += `\n\n**Error:** ${ev.message}`; }
         });
@@ -738,15 +739,16 @@
       if (!o.name) { toast("Enter the person's name; it is used in the prompts.", true); return; }
       $("#p-output").hidden = false; const log = $("#p-log"); const mdEl = $("#p-md"); log.textContent = ""; mdEl.innerHTML = "";
       $("#p-build").disabled = true;
-      let text = "", raf = null;
+      // `finished` stops a frame that lands after "done" or "error" from redrawing the profile with the typing cursor.
+      let text = "", raf = null, finished = false;
       try {
         await stream("/api/profile", o, (ev) => {
           if (ev.type === "log") { log.textContent += ev.message + "\n"; log.scrollTop = log.scrollHeight; }
-          if (ev.type === "text") { text += ev.text; if (!raf) raf = requestAnimationFrame(() => { raf = null; mdEl.innerHTML = md(text) + '<span class="cursor"></span>'; }); }
-          if (ev.type === "done") { mdEl.innerHTML = md(text); log.innerHTML += `<span class="ok">Done. ${ev.meetings} meetings · ${esc(ev.model)} · in ${fmtNum(ev.usage.input_tokens)} (cached ${fmtNum(ev.usage.cache_read_input_tokens)}) · out ${fmtNum(ev.usage.output_tokens)}</span>\n<a href="/api/file?path=${encodeURIComponent(ev.file)}&download=1">Download Markdown</a>`; loadList(); }
-          if (ev.type === "error") { log.innerHTML += `<span class="err">${esc(ev.message)}</span>\n`; mdEl.innerHTML = md(text); }
+          if (ev.type === "text") { text += ev.text; if (!raf) raf = requestAnimationFrame(() => { raf = null; if (!finished) mdEl.innerHTML = md(text) + '<span class="cursor"></span>'; }); }
+          if (ev.type === "done") { finished = true; mdEl.innerHTML = md(text); log.innerHTML += `<span class="ok">Done. ${ev.meetings} meetings · ${esc(ev.model)} · in ${fmtNum(ev.usage.input_tokens)} (cached ${fmtNum(ev.usage.cache_read_input_tokens)}) · out ${fmtNum(ev.usage.output_tokens)}</span>\n<a href="/api/file?path=${encodeURIComponent(ev.file)}&download=1">Download Markdown</a>`; loadList(); }
+          if (ev.type === "error") { finished = true; log.innerHTML += `<span class="err">${esc(ev.message)}</span>\n`; mdEl.innerHTML = md(text); }
         });
-      } catch (err) { log.innerHTML += `<span class="err">${esc(err.message)}</span>`; }
+      } catch (err) { finished = true; log.innerHTML += `<span class="err">${esc(err.message)}</span>`; mdEl.innerHTML = md(text); }
       $("#p-build").disabled = false;
     };
     if (p.name) $("#p-preview").click();
