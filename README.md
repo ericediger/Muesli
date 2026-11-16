@@ -189,3 +189,7 @@ npm test
 ```
 
 See [USE-CASES.md](USE-CASES.md) for what the API makes possible beyond the Granola app.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
