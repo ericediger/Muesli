@@ -1,5 +1,11 @@
 # Muesli
 
+[![Watch the one-minute explainer video](media/explainer-poster.jpg)](https://ericediger.github.io/Muesli/media/muesli-explainer.mp4)
+
+**[▶ Watch the 1-minute explainer](https://ericediger.github.io/Muesli/media/muesli-explainer.mp4)**
+
+The explainer is recorded from the real web GUI running on fictional sample meetings, with scripted answers; no real meeting data appears in it. Its source is in [`explainer/`](explainer/).
+
 Muesli is granola before the baking: the raw ingredients. This app works the same way with your Granola meetings, reading the raw transcripts rather than the AI summaries.
 
 Muesli is a local web GUI and command-line tool that give you API-level access to your Granola meeting notes for things the Granola app cannot do:
