@@ -15,11 +15,11 @@ project_owner: Eric
 released_to: none
 escalation_pending: false
 closed_reason: none
-branch: none
-base_branch: none
-worktree: main checkout (not a git repository)
-latest_commit: none
-uncommitted_changes: not a git repository; files listed under Completed
+branch: main
+base_branch: none (first commit in the repository)
+worktree: main checkout
+latest_commit: 9e75023 (initial import, pushed to origin/main)
+uncommitted_changes: none (all work is in 9e75023)
 depends_on: []
 blocks: []
 milestones:
@@ -29,7 +29,7 @@ milestones:
   accepted: no
   merged: no
   deployed: yes             # running in the local GUI service on port 4747 after a restart
-updated_at: 2026-11-16T13:41-05:00
+updated_at: 2026-11-16T14:02-05:00
 updated_by: Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d
 ---
 
@@ -111,3 +111,4 @@ Eric tests Ask and Profiles in the GUI.
 
 - 2026-11-16T13:35-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · created · task opened from Eric's requests in chat; preflight: not a git repo; overlap with granola-20261116-model-picker noted (same owner)
 - 2026-11-16T13:41-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · implementation complete; gates passed; GUI service restarted; browser and .env reload checks passed
+- 2026-11-16T14:02-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · folder became a git repository; this task's changes are in the initial commit 9e75023 on main, pushed to origin (task granola-20261116-publish-github)

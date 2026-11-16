@@ -18,18 +18,18 @@ closed_reason: none
 branch: main
 base_branch: none (first commit in the repository)
 worktree: main checkout
-latest_commit: pending (initial commit not made yet)
-uncommitted_changes: whole project, before the initial commit
+latest_commit: 9e75023 (initial import, pushed); a follow-up commit records this result
+uncommitted_changes: none after the follow-up commit
 depends_on: []
 blocks: []
 milestones:
   implementation_complete: yes
-  verified: yes             # gates and name/secret scans below
-  ready_for_owner_testing: no
+  verified: yes             # gates, name/secret scans and staged-file checks below
+  ready_for_owner_testing: yes
   accepted: no
-  merged: no
-  deployed: no              # pushed: pending
-updated_at: 2026-11-16T14:01-05:00
+  merged: no                # not applicable: the work is the first commit on main
+  deployed: yes             # pushed to origin/main; GitHub shows main as the default branch
+updated_at: 2026-11-16T14:03-05:00
 updated_by: Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d
 ---
 
@@ -56,7 +56,7 @@ Publish the project to `github.com/ericediger/Muesli` (public, empty when checke
 
 ## Current state
 
-The real names are replaced, and the scans are clean. The git repository is not created yet.
+The project is a git repository on `main`, published at `github.com/ericediger/Muesli`. The initial commit is `9e75023`, and a follow-up commit records this result.
 
 ## Completed
 
@@ -69,9 +69,12 @@ The real names are replaced, and the scans are clean. The git repository is not 
 - `.gitignore` excludes `.mcp.json`.
 - `AGENTS.md` §0.9 records `main`, the repository, and "ask before each push" (the repository is public).
 
+- `git init -b main`, initial commit `9e75023` (58 files), remote `origin` added, `main` pushed.
+- The three earlier task records now point to `9e75023` instead of "not a git repository".
+
 ## Remaining
 
-- `git init`, review the staged files, commit, push, then update this record with the commit and push results.
+- none
 
 ## Blockers
 
@@ -83,7 +86,7 @@ The real names are replaced, and the scans are clean. The git repository is not 
 
 ## Next step
 
-Initial commit on `main`, then push.
+Eric checks the repository on GitHub and decides on a license. Future pushes need his OK each time (`AGENTS.md` §0.9).
 
 ## Verification
 
@@ -95,6 +98,9 @@ Initial commit on `main`, then push.
 | real names | scratch scan: names, attendee names, email domains and title words from the local archive index, matched against the files to publish | passed (only the owner's first name and common words match) | working tree | 2026-11-16T13:59-05:00 |
 | keys, paths, emails | grep for key patterns, absolute home paths and email addresses | passed (only placeholder keys and made-up `example` / `x.com` addresses) | working tree | 2026-11-16T13:59-05:00 |
 | GitHub identity | `git config user.email` | GitHub no-reply address | machine config | 2026-11-16T13:52-05:00 |
+| staged files | `git diff --cached --name-only` against the probe list; grep for personal paths and key patterns in the staged diff | passed (58 files, matches the probe list plus this record; no personal paths; 0 key patterns) | index before 9e75023 | 2026-11-16T14:01-05:00 |
+| commit author | `git log -1 --format=%ae` | GitHub no-reply address | 9e75023 | 2026-11-16T14:02-05:00 |
+| push | `git push -u origin main`; `git ls-remote origin main`; `gh repo view` | passed (origin/main = 9e75023; default branch main; public) | 9e75023 | 2026-11-16T14:02-05:00 |
 
 **Verification limits:** the name scan only covers names found in the archive index (titles, attendees, speaker tags). Text of other kinds was reviewed by reading the matched lines.
 
@@ -110,3 +116,4 @@ Initial commit on `main`, then push.
 
 - 2026-11-16T13:55-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · created · preflight: repository public and empty, gh signed in, no-reply commit email; real names found in tests, docs and placeholders; asked Eric before git init and push
 - 2026-11-16T14:01-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · Eric approved; names replaced; gates and scans passed; ready for the initial commit
+- 2026-11-16T14:03-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · initial commit 9e75023 pushed to origin/main; earlier task records updated; follow-up commit records this

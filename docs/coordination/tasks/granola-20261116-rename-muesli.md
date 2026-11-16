@@ -15,11 +15,11 @@ project_owner: Eric
 released_to: none
 escalation_pending: false
 closed_reason: none
-branch: none
-base_branch: none
-worktree: main checkout (not a git repository)
-latest_commit: none
-uncommitted_changes: not a git repository; files listed under Completed
+branch: main
+base_branch: none (first commit in the repository)
+worktree: main checkout
+latest_commit: 9e75023 (initial import, pushed to origin/main)
+uncommitted_changes: none (all work is in 9e75023)
 depends_on: []
 blocks: []
 milestones:
@@ -29,7 +29,7 @@ milestones:
   accepted: no
   merged: no
   deployed: yes             # running in the local GUI service on port 4747 after a restart
-updated_at: 2026-11-16T13:50-05:00
+updated_at: 2026-11-16T14:02-05:00
 updated_by: Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d
 ---
 
@@ -100,3 +100,4 @@ Eric checks the app. Any Dock or desktop shortcut to the old start-up file needs
 
 - 2026-11-16T13:46-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · created · task opened from Eric's choice in chat; preflight: not a git repo; overlap with two same-owner tasks noted
 - 2026-11-16T13:50-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · rename complete; gates passed; GUI service restarted and checked
+- 2026-11-16T14:02-05:00 · Claude Code 1e01a2f2-d5f7-4864-8ab7-10ac8ad9d96d · updated · folder became a git repository; this task's changes are in the initial commit 9e75023 on main, pushed to origin (task granola-20261116-publish-github)
