@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "granola-gui",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "tsx",
+        "src/server.ts",
+        "--port",
+        "4747"
+      ],
+      "port": 4747
+    }
+  ]
+}

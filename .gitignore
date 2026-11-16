@@ -1,0 +1,23 @@
+node_modules/
+dist/
+data/
+.env
+*.log
+.DS_Store
+
+# --- Coordination standard v1: secrets and local agent files. Keep this block identical in every application folder. ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.claude/settings.local.json
+.claude/worktrees/
+CLAUDE.local.md
+.DS_Store
+# --- end coordination standard v1. Project-specific personal-data paths go below. ---
+
+# Personal tool setup (MCP servers), not part of the app.
+.mcp.json
