@@ -29,7 +29,7 @@ milestones:
   accepted: no
   merged: no
   deployed: no
-updated_at: 2026-11-16T16:05-05:00
+updated_at: 2026-11-16T16:12-05:00
 updated_by: Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8
 ---
 
@@ -47,7 +47,7 @@ A one-to-two-minute explainer video of the Muesli web GUI, made with the /sizzle
 
 ## Scope
 
-- **In scope:** `explainer/` (video source), `media/` (the rendered video and poster), this record. Possibly a README snippet linking the poster, if Eric wants it.
+- **In scope:** `explainer/` (video source), `media/` (the rendered video and poster), the top of `README.md` (poster and link to the video), this record.
 - **Out of scope:** the app's own code in `src/` and `web/`. The video films the existing GUI against a stage with fictional data.
 - **Shared resources touched:** none. The stage was served on its own local port during checks, never the GUI service on port 4747, and it never reads `data/` or `.env`.
 
@@ -65,7 +65,7 @@ The video is rendered: `media/muesli-explainer.mp4` (68.4 s, 1920×1080, about 1
 
 - Eric reviews and accepts the video.
 - Push and pull request, if Eric approves the push (public repository).
-- Optional README snippet linking the poster to the video.
+- Merge the pull request and turn on GitHub Pages (main, root), so the README's video link plays. Both are Eric's decisions.
 
 ## Blockers
 
@@ -73,12 +73,13 @@ The video is rendered: `media/muesli-explainer.mp4` (68.4 s, 1920×1080, about 1
 
 ## Decisions needed (from Eric)
 
-- Push the branch and open a pull request. The commit adds about 21 MB (video 17.5 MB, music 3.6 MB, poster 0.1 MB) to a public repository.
+- Push: approved. Eric asked to "put this on the GH repo as the readme like" the flight-deck, STRATEGOS and pawn READMEs (2026-11-16). The branch adds about 21 MB (video 17.5 MB, music 3.6 MB, poster 0.1 MB) to a public repository.
+- Merge the pull request, and turn on GitHub Pages for the repository (source `main`, `/`), as flight-deck and STRATEGOS have it. Until both happen, the README's video link returns 404.
 - Storyboard: Eric did not answer the sign-off question directly; he picked the music, then approved the full render after seeing the stills.
 
 ## Next step
 
-Eric watches `media/muesli-explainer.mp4` and decides whether to push.
+Eric merges the pull request and turns on GitHub Pages (or tells the owner to).
 
 ## Verification
 
@@ -113,3 +114,4 @@ Eric watches `media/muesli-explainer.mp4` and decides whether to push.
 
 - 2026-11-16T15:17-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · created · task opened at Eric's request; branch cut from main. The uncommitted closing update to the MIT license record belongs to that task and is left untouched.
 - 2026-11-16T16:05-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · video rendered and verified; Eric approved the render after the stills; committed on the task branch under the standing authorization. Push not done: needs Eric's approval.
+- 2026-11-16T16:12-05:00 · Claude Code d7de786c-d1df-48ea-91bb-7c7849d5a6b8 · updated · added the poster and video link to the top of README.md, matching flight-deck, STRATEGOS and pawn (GitHub Pages URL); pushing the branch and opening a pull request at Eric's request.
